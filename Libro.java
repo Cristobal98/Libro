@@ -20,8 +20,7 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean esLibroTexto)
-    {
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean esLibroTexto){
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
@@ -64,7 +63,7 @@ public class Libro {
         
     }
     
-    public void setPrestar(){
+    public void prestar(){
         vecesPrestado += 1;
     }
     
@@ -82,7 +81,7 @@ public class Libro {
             detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: " + numeroReferencia + ", Numero de veces que ha sido prestado: " + vecesPrestado + ", Es un libro de texto: " + siONo;
         } 
         else {
-         detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: ZZZ, Numero de veces que ha sido prestado: " + vecesPrestado + ", Es un libro de texto: " + siONo;
+            detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: ZZZ, Numero de veces que ha sido prestado: " + vecesPrestado + ", Es un libro de texto: " + siONo;
         }
         return detalles;
     }
