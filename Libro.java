@@ -15,17 +15,19 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean esLibroTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = esLibroTexto;
     }
     
     public String getAutor(){
@@ -48,6 +50,9 @@ public class Libro {
         return vecesPrestado;
     }
     
+    public boolean getEsLibroDeTexto(){
+        return esLibroDeTexto;
+    }
     
     public void setNumeroReferencia (String referencia){
         if (referencia.length() >= 3){
@@ -65,11 +70,19 @@ public class Libro {
     
     public String getDetalles(){
         String detalles = "";
+        String siONo = "";
+        if (esLibroDeTexto == true){
+            siONo = "Si";
+        }
+        else {
+            siONo = "No";
+        }
+        
         if (numeroReferencia != ""){
-            detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: " + numeroReferencia + ", Numero de veces que ha sido prestado: " + vecesPrestado;
+            detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: " + numeroReferencia + ", Numero de veces que ha sido prestado: " + vecesPrestado + ", Es un libro de texto: " + siONo;
         } 
         else {
-          detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: ZZZ, Numero de veces que ha sido prestado: " + vecesPrestado;
+         detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: ZZZ, Numero de veces que ha sido prestado: " + vecesPrestado + ", Es un libro de texto: " + siONo;
         }
         return detalles;
     }
@@ -85,7 +98,5 @@ public class Libro {
     public void imprimeDetalles(){
        System.out.println(getDetalles());
     }
-    
-    
-    
+
 }
