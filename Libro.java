@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
+        numeroReferencia = "";
     }
     
     public String getAutor(){
@@ -36,8 +38,28 @@ public class Libro {
         return numeroPaginas;
     }
     
+    public String getNumeroReferencia(){
+        return numeroReferencia;
+    }
+    
+    public void setNumeroReferencia (String referencia){
+        if (referencia.length() >= 3){
+            numeroReferencia = referencia;
+        }
+        else{
+            System.out.println("Error: No ha sido posible modificar el numero de referencia, debe introducir al menos 3 caracteres.");
+        }
+        
+    }
+    
     public String getDetalles(){
-        String detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas;
+        String detalles = "";
+        if (numeroReferencia != ""){
+            detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: " + numeroReferencia;
+        } 
+        else {
+           detalles ="Titulo: " + titulo + ", Autor: " + autor + ", Paginas: " + numeroPaginas + ", Numero de Referencia: ZZZ";
+        }
         return detalles;
     }
     
@@ -52,5 +74,7 @@ public class Libro {
     public void imprimeDetalles(){
        System.out.println(getDetalles());
     }
+    
+    
     
 }
